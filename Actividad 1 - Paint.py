@@ -21,13 +21,40 @@ def square(start, end):
 
     end_fill()
 
+# Método para generar un círculo
 def circle(start, end):
     "Draw circle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    
+    circumference = 2 * (abs(start.x-end.x)+abs(start.y-end.y)) * math.pi
+    step_size = circumference / 360
+    
+    for count in range(360):
+        forward(step_size)
+        left(1)
+    
+    end_fill()
 
+# Método para generar un rectángulo
 def rectangle(start, end):
     "Draw rectangle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    for count in range(4):
+        if count%2 == 0:
+            forward(end.x - start.x)
+            left(90)
+        else:
+            forward((end.y - start.y))
+            left(90)
+
+    end_fill()
 
 def triangle(start, end):
     "Draw triangle from start to end."
