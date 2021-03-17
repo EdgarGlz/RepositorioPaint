@@ -3,6 +3,8 @@
 
 from turtle import *
 from freegames import vector
+# Se importa la librería math para usar pi
+import math
 
 #Método para generar lineas
 def line(start, end):
@@ -12,6 +14,7 @@ def line(start, end):
     down()
     goto(end.x, end.y)
 
+# Método para generar un cuadrado
 def square(start, end):
     "Draw square from start to end."
     up()
