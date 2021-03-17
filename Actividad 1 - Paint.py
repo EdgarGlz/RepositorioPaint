@@ -1,6 +1,10 @@
+#Diego  Esparza - A01652327
+#Edgar Federico González Aguirre - A01383154
+
 from turtle import *
 from freegames import vector
 
+#Método para generar lineas
 def line(start, end):
     "Draw line from start to end."
     up()
@@ -56,9 +60,23 @@ def rectangle(start, end):
 
     end_fill()
 
+#Método para generar un triángulo
 def triangle(start, end):
     "Draw triangle from start to end."
-    pass  # TODO
+    up()                          #"levantar" pluma
+    goto(start.x, start.y)        #graficar
+    down()                        #comienza relleno
+    begin_fill()
+    
+    for i in range(3):            #realiza el trazo
+        forward(end.x - start.x)  #distancia cualquiera
+        left(120)                 #angulo (120°)
+        forward(end.x - start.x)  # continúa el trazo
+        
+        #repite para terminar triángulo
+    
+    end_fill()                    #Termina ciclo de llenado
+    pass                          # TODO
 
 def tap(x, y):
     "Store starting point or draw shape."
@@ -81,11 +99,17 @@ setup(420, 420, 370, 0)
 onscreenclick(tap)
 listen()
 onkey(undo, 'u')
+
+#Colores
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+  #se añade color amarillo
+onkey(lambda: color('yellow'), 'Y')
+
+#Trazos
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
